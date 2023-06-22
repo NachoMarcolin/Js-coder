@@ -1,37 +1,53 @@
-// El objetivo del proyecto es calcular el porcentaje de tiro de un basquetbolista 
-// Mediante el uso de function conseguimos que se realice el calculo de los daton ingresados por el usuario 
-function calcularPorcentajeTiro(intentos, exitos) {
-    if (intentos === 0) {
-        return 0;
-    }
+// Mostrar lista de productos al cliente
 
-    return (exitos / intentos) * 100;
+const productos = [
+    " 1-Peluche", 
+    " 2-Taza", 
+    " 3-Sahumerio", 
+    " 4-Cuadro", 
+    " 5-Desayuno",
+    " 6-Cuaderno",
+    " 7-Otro"
+];
+
+console.log("Lista de productos:");
+for (let i = 0; i < productos.length; i++) {
+    console.log((i + 1) + ". " + productos[i]);
 }
 
-// En este punto del proyecto realizamos los prompt necesarios para que el usuario ingrese los datos que busca calcular 
-const intentos = parseInt(prompt("Ingrese la cantidad de intentos de tiro:"));
-const exitos = parseInt(prompt("Ingrese la cantidad de tiros exitosos:"));
+// Guardar la opcion del usuario y analizar si la respuesta es valida
+const eleccion = parseInt(prompt("Ingrese el número del producto que desea elegir: " + productos ));
 
-// Acá busco que porcentajeTiro de el calcularPorcentajeTiro 
-const porcentajeTiro = calcularPorcentajeTiro(intentos, exitos);
-
-// Acá hago que se muestren los resultados del porcentaje 
-console.log(`El porcentaje de tiro es: ${porcentajeTiro}%`);
-
-alert(`El porcetaje de tiro de su jugador es: ${porcentajeTiro}%`)
-
-
-// Dependiendo el porcentaje del resultado se muestra un mensaje distinto 
-if(porcentajeTiro < 30){
-    console.log("Debería practicar más")
-    alert("Deberías seguir practicando tu tiro!")
-}else if(porcentajeTiro >=30 && porcentajeTiro <=51){
-    console.log("Tenés un buen tiro, seguí así!")
-    alert("Tenés un buen tiro, seguí así!")
-}else if(porcentajeTiro >51 && porcentajeTiro <=99){
-    console.log("Sos muy bueno, ser tirador es lo tuyo")
-    alert("Sos muy bueno, ser tirador es lo tuyo")
-}else if(porcentajeTiro ==100){
-    console.log("Sos un robot, que locura")
-    alert("Sos un robot, que locura")
+if (eleccion >= 1 && eleccion <= productos.length) {
+    const productoElegido = productos[eleccion - 1];
+    console.log("Ha elegido el " + productoElegido + ".");
+} else {
+    console.log("La elección no es válida.");
 }
+
+
+
+
+// Capturar entradas mediante prompt()
+const nombreProducto = prompt("Ingrese el nombre del producto:");
+const precioProducto = parseFloat(prompt("Ingrese el precio del producto:"));
+const cantidadProducto = parseInt(prompt("Ingrese la cantidad de productos:"));
+const porcentajeDescuento = parseInt(prompt("Ingrese el porcentaje de descuento:"));
+
+// Declarar variables y objetos necesarios
+let subtotal = precioProducto * cantidadProducto;
+let descuento = (subtotal * porcentajeDescuento) / 100;
+let total = subtotal - descuento;
+
+// Crear función para mostrar los resultados
+function mostrarResultados() {
+    console.log("Nombre del producto: " + nombreProducto);
+    console.log("Precio por unidad: $" + precioProducto);
+    console.log("Cantidad: " + cantidadProducto);
+    console.log("Subtotal: $" + subtotal);
+    console.log("Descuento: $" + descuento);
+    console.log("Total a pagar: $" + total);
+}
+
+// Llamar a la función para mostrar los resultados
+mostrarResultados();
