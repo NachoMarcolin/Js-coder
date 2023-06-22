@@ -28,18 +28,18 @@ if (eleccion >= 1 && eleccion <= productos.length) {
 
 
 
-// Capturar entradas mediante prompt()
+// Metodo para obtener informacion sobre todo lo necesario para sacar el valor a pagar 
 const nombreProducto = prompt("Ingrese el nombre del producto:");
 const precioProducto = parseFloat(prompt("Ingrese el precio del producto:"));
 const cantidadProducto = parseInt(prompt("Ingrese la cantidad de productos:"));
 const porcentajeDescuento = parseInt(prompt("Ingrese el porcentaje de descuento:"));
 
-// Declarar variables y objetos necesarios
+// variables y objetos
 let subtotal = precioProducto * cantidadProducto;
 let descuento = (subtotal * porcentajeDescuento) / 100;
 let total = subtotal - descuento;
 
-// Crear función para mostrar los resultados
+// acá se crea la function para dar el resultado 
 function mostrarResultados() {
     console.log("Nombre del producto: " + nombreProducto);
     console.log("Precio por unidad: $" + precioProducto);
@@ -49,5 +49,4 @@ function mostrarResultados() {
     console.log("Total a pagar: $" + total);
 }
 
-// Llamar a la función para mostrar los resultados
 mostrarResultados();
