@@ -1,52 +1,64 @@
-// Mostrar lista de productos al cliente
-
 const productos = [
-    " 1-Peluche", 
-    " 2-Taza", 
-    " 3-Sahumerio", 
-    " 4-Cuadro", 
-    " 5-Desayuno",
-    " 6-Cuaderno",
-    " 7-Otro"
+    { id: 1, name: "Taza stitch", price: 1500 },
+    { id: 2, name: "Taza pato donald", price: 1500 },
+    { id: 3, name: "Peluche stitch", price: 2000 }
 ];
 
-console.log("Lista de productos:");
-for (let i = 0; i < productos.length; i++) {
-    console.log((i + 1) + ". " + productos[i]);
+
+function displayProductos() {
+    const productosContainer = document.getElementById("productos");
+    productosContainer.innerHTML = "";
+
+    productos.forEach((producto) => {
+        const productoElement = document.createElement("div");
+        productoElement.innerHTML = `
+        <p>${producto.name} - $${producto.price}</p>
+        <button onclick="addToCart(${producto.id})">Agregar al carrito</button>
+        `;
+        productosContainer.appendChild(productoElement);
+    });
 }
 
-// Guardar la opcion del usuario y analizar si la respuesta es valida
-const eleccion = parseInt(prompt("Ingrese el número del producto que desea elegir: " + productos ));
+displayProductos();
 
-if (eleccion >= 1 && eleccion <= productos.length) {
-    const productoElegido = productos[eleccion - 1];
-    console.log("Ha elegido el " + productoElegido + ".");
-} else {
-    console.log("La elección no es válida.");
+
+function addToCart(productoId) {
+    // Verificar si el producto ya está en el carrito
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const producto = productos.find((p) => p.id === productoId);
+    const existingProducto = carrito.find((p) => p.id === productoId);
+
+    if (existingProducto) {
+        existingProducto.quantity++;
+    } else {
+        producto.quantity = 1;
+        carrito.push(producto);
+    }
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    updateCarrito();
 }
 
+// Función para actualizar el carrito en la página
+function updateCarrito() {
+    const carritoContainer = document.getElementById("carrito");
+    carritoContainer.innerHTML = "";
 
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-
-// Metodo para obtener informacion sobre todo lo necesario para sacar el valor a pagar 
-const nombreProducto = prompt("Ingrese el nombre del producto:");
-const precioProducto = parseFloat(prompt("Ingrese el precio del producto:"));
-const cantidadProducto = parseInt(prompt("Ingrese la cantidad de productos:"));
-const porcentajeDescuento = parseInt(prompt("Ingrese el porcentaje de descuento:"));
-
-// variables y objetos
-let subtotal = precioProducto * cantidadProducto;
-let descuento = (subtotal * porcentajeDescuento) / 100;
-let total = subtotal - descuento;
-
-// acá se crea la function para dar el resultado 
-function mostrarResultados() {
-    console.log("Nombre del producto: " + nombreProducto);
-    console.log("Precio por unidad: $" + precioProducto);
-    console.log("Cantidad: " + cantidadProducto);
-    console.log("Subtotal: $" + subtotal);
-    console.log("Descuento: $" + descuento);
-    console.log("Total a pagar: $" + total);
+    carrito.forEach((producto) => {
+        const carritoItem = document.createElement("li");
+        carritoItem.innerHTML = `${producto.name} - Cantidad: ${producto.quantity}`;
+        carritoContainer.appendChild(carritoItem);
+    });
 }
 
-mostrarResultados();
+// Función para vaciar el carrito
+function clearCarrito() {
+    localStorage.removeItem("carrito");
+    updateCarrito();
+}
+
+window.addEventListener("load", () => {
+    updateCarrito();
+});
