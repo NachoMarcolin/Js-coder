@@ -1,16 +1,64 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
 <head>
     <title>Carrito de Compras</title>
 </head>
 
 <body>
     <h1>Carrito de Compras</h1>
-    <div id="productos"></div>
+    <div id="products"></div>
     <h2>Carrito:</h2>
     <ul id="carrito"></ul>
-    <button onclick="clearCarrito()">Vaciar Carrito</button>
+    <p id="total">Total: $0</p>
+<button>Vaciar Carrito</button>
+    <div class="container">
+        <div class="products">
+            <!-- Ejemplo de enlace de imagen para el primer producto -->
+            <div class="product1">
+            <img src="https://previews.dropbox.com/p/thumb/AB-_BK1S-gA_9p8rwOjVHVqg83XlqMWRxmiixIy1qQ9RsdRX8Ik_rela2wEx4kYX1Dk1IpN4XIbczaMrrV_s7dRzlzB4MUo627ytqzAugSw3lLAYhkpVLHchd_0NHABsvmJMFefNDzhzW6OBqWL46x4fheUNkv1MJ1wOkTuWgnKsnfQwXofUluy6mFo4jkOPNMw3SEV5N0PoTCe6IDLKaBWRY1U-wNO6GbbzHnhtZhfHWzUfohLOMwmq6gyTOocrXzQx0uDxuBluWievBT80VV78ncXtJO6x3BuApvtphq2I0D4pCWuV0kR_-OlD3qka-R-958jEhJBB59UMtLd-k6Im/p.jpeg" alt="Product1">
+            <h3>Taza Dory</h3>
+            <p>Precio: $3000</p>
+            <p class="stock">Disponible: 5 unidades</p>
+            <button class="add-to-cart" data-id="1">Agregar al carrito</button>
+            </div>
+
+            <div class="product2">
+                <img src="https://previews.dropbox.com/p/thumb/AB8LVO7LbD5zuQ4x-3W9qEWLyXidhMy3s_ogWyCZHMVo8XAsur2P91A5XQfMTXMwyBj3Ejzc1puQgaHyEHoedUU2HTvyUSM0mceWGwwDJ2hKyeJfxOFMNHHy3HBQlkGgaA-QABig5fSx_-Mrs0CedyBgZGfSrgE_67wJ4IVmEaIb9dpU4G-pQ82ENxzmDGcCve2Myh0ov8Ty78OuvlMCPNro-tyi32e7O9uV9FrjQO7fEyIHke2JaTOUvsx0e8pELQWztnk3sESH3BMRxhIyt7XWJZCH6JW8NT8ygcnI1A1yD6s59f36vagTrGM3iVoldr-QGKxT7pdsfal-58n6PqME/p.jpeg" alt="Product2">
+                <h3>Taza Mike</h3>
+                <p>Precio: $3100</p>
+                <p class="stock">Disponible: 3 unidades</p>
+                <button class="add-to-cart" data-id="1">Agregar al carrito</button>
+                </div>
+
+                <div class="product3">
+                    <img src="https://previews.dropbox.com/p/thumb/AB_Xxc-kdr9S5fFifYN-8nmzf46GTdQN6XBz3IZIbMz8wnYmvT2MzsyaF2QLVW9i5CiVUgS_04lW0US6eA9_4mkovBmzhMpCnFLxPdTSLs_GsrNz24B2jwhDeSVLqElxR3Bno1huEFMbqYmU5_RD1di42eot1_rwgBijRu11i4KGx7n4uPAS1mJV5MSjaTyoRAPLWcnCuV_qzJC0wqHn747T-WPlKbhqEZLZCf_I8t4yiYKrr6kJeWYX9-oZTmXcRaDBC1ZEqUGSeJQRewzgli7Sm1Wy_w9O_ZsIUP2ESQtHMCy9h7dHSObFMNP2I4GT8jWNsGuaIQCWQ2YvafRln7jF/p.jpeg" alt="Product3">
+                    <h3>Taza Stitch</h3>
+                    <p>Precio: $3200</p>
+                    <p class="stock">Disponible: 15 unidades</p>
+                    <button class="add-to-cart" data-id="1">Agregar al carrito</button>
+                    </div>
+
+                    <div class="product4">
+                        <img src="https://previews.dropbox.com/p/thumb/AB8KESYTqdpkaLY1UmbtTSNorhXP_fmhPqa4I6LyQSGSyzNEDm54jbHvONaCHNhipAgIpb-cS9QamRiAcqnB5xLqlSi9zJ4zw4DCPzkhkd4joCs-HZcWAK0w7yr7rmKOla-70YpPKUS_dkoJtY04AQJl8lYaPIf9dtSn9VIouCeuzJIvbDJnU8Rpkv8ssP9BeV0OgV_gO17gUmWTm6QvgHET7prcccqGV0EaNAxjgnalkwji_nforE90w-jWmMNkJykkllL2T8t9dJSxmnA1zYLn23XrHkmXD3c2G5LBG3XtMbUl6OubgjR3D-fXfrDraGyQZh7cUqhc_j7bVtC-O90o/p.jpeg" alt="Product4">
+                        <h3>Taza Marcianito</h3>
+                        <p>Precio: $3000</p>
+                        <p class="stock">Disponible: 10 unidades</p>
+                        <button class="add-to-cart" data-id="1">Agregar al carrito</button>
+                        </div>
+
+                        <div class="product5">
+                            <img src="https://previews.dropbox.com/p/thumb/AB_olbLKpRqCXbL6FGVEGSBrV1izAEd5-THNteQ2Xe5DMJDAOjUjmP6qhV_7AWiAj727DLBqZgVh1W_vFgO9fyMK09IbNp-5FnwszJdjkROjjjUc3nhUlhLlNFfrnyTZ8-N_SXzOaZcYCY3eGVHMw-ydEZXkwVRdnA4s-ooPpGnSLfcYAf11sbTdTjXE6G65mC0QRX8Fy3isoyau-OWLub5QL_2xVjBytCOFPp7Fj1sWnY2vFFZ5YTYJvXJhSmDExfJENbOCzAkuZJtriyHUQpyT-XpomxqZ1tsswO1CEPL0seH3xx0InOSRfpdK54-hqjKZMpjpeg9quwRh-hGN0Yeo/p.jpeg" alt="Product5">
+                            <h3>Taza Jack</h3>
+                            <p>Precio: $3100</p>
+                            <p class="stock">Disponible: 6 unidades</p>
+                            <button class="add-to-cart" data-id="1">Agregar al carrito</button>
+                            </div>
+        </div>
+        <div class="cart">
 
     <script src="./js/proyecto.js"></script>
 </body>
